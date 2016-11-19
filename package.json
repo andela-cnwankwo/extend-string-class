@@ -4,20 +4,23 @@
   "description": "Extend string class in javascript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha spec/string-spec.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andela-cnwankwo/extend-string-class.git"
+    "url": "git+https://github.com/andela-cnwankwo/string-class.git"
   },
   "author": "Ethan Nwankwo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andela-cnwankwo/extend-string-class/issues"
+    "url": "https://github.com/andela-cnwankwo/string-class/issues"
   },
-  "homepage": "https://github.com/andela-cnwankwo/extend-string-class#readme",
+  "homepage": "https://github.com/andela-cnwankwo/string-class#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.1.2"
   }
 }
