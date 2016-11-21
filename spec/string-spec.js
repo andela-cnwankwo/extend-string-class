@@ -11,13 +11,13 @@ describe('String class', () => {
 
   describe('toUpper', () => {
     it('Should return the string with all characters in upper case', () => {
-      expect('home'.hasUpper()).to.equal('HOME');
+      expect('home'.toUpper()).to.equal('HOME');
     });
   });
 
   describe('toLower', () => {
     it('Should return the string with all characters in lower case', () => {
-      expect('HOME'.hasUpper()).to.equal('home');
+      expect('HOME'.toLower()).to.equal('home');
     });
   });
 
