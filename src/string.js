@@ -25,6 +25,18 @@ const ExtendString = {
       }
     }
     return lower;
+  },
+  ucFirst() {
+    return (this[0].toUpper() + this.slice(1));
+  },
+  isQuestion() {
+    return /[?]$/.test(this);
+  },
+  words() {
+    return this.match(/(\w+)/g);
+  },
+  wordCount() {
+    return this.words().length;
   }
 };
 

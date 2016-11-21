@@ -36,13 +36,14 @@ describe('String class', () => {
 
   describe('words', () => {
     it('Should return a list of the words in the string as an array', () => {
-      expect('This is a sentence'.words()).to.equal(['This', 'is', 'a', 'sentence']);
+      expect('This is a sentence'.words()).to.deep.equal(['This', 'is', 'a', 'sentence']);
+      expect('This is a sentence'.words() instanceof Array).to.be.true;
     });
   });
 
   describe('wordCount', () => {
     it('Should return the number of words in the string', () => {
-      expect('word'.wordCount()).to.equal(4);
+      expect('number of words'.wordCount()).to.equal(3);
     });
   });
 
