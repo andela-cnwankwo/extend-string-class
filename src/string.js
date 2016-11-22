@@ -37,6 +37,27 @@ const ExtendString = {
   },
   wordCount() {
     return this.words().length;
+  },
+  toCurrency() {
+    if (this.split('.').length === 2) {
+      return `${parseInt(this).toLocaleString()}.${this.split('.')[1]}`;
+    }
+    return `${parseInt(this).toLocaleString()}`;
+  },
+  fromCurrency() {
+    return parseFloat(this.replace(/,/g, ''));
+  },
+  inverseCase() {
+    const len = this.length;
+    let inverseCase = '';
+    for (let i = 0; i < len; i += 1) {
+      if (this[i].match(/[a-z]/)) {
+        inverseCase += this[i].toUpper();
+      } else {
+        inverseCase += this[i].toLower();
+      }
+    }
+    return inverseCase;
   }
 };
 
