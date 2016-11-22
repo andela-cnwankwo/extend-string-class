@@ -58,6 +58,53 @@ const ExtendString = {
       }
     }
     return inverseCase;
+  },
+  alternatingCase() {
+    const len = this.length;
+    let alternatingCase = '';
+    for (let i = 0; i < len; i += 1) {
+      if ((i % 2 !== 0)) {
+        alternatingCase += this[i].toUpper();
+      } else {
+        alternatingCase += this[i].toLower();
+      }
+    }
+    return alternatingCase;
+  },
+  getMiddle() {
+    const len = this.length;
+    if (len % 2 === 0) {
+      return `${this[(len / 2) - 1]}${this[(len / 2)]}`;
+    }
+    return this[parseInt(len / 2)];
+  },
+  numberWords() {
+    const numberWords = {
+      0: 'zero',
+      1: 'one',
+      2: 'two',
+      3: 'three',
+      4: 'four',
+      5: 'five',
+      6: 'six',
+      7: 'seven',
+      8: 'eight',
+      9: 'nine' };
+    const numbers = this.toString().split('');
+    let word = '';
+    numbers.forEach((number) => {
+      word += `${numberWords[number]} `;
+    });
+    return word.slice(0, -1);
+  },
+  isDigit() {
+    if (/\d+/.exec(this).toString().length > 1) {
+      return false;
+    }
+    return true;
+  },
+  doubleCheck() {
+    return /(\w).*?\1|(\W).*?\1/.test(this);
   }
 };
 
