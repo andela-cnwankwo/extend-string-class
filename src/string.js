@@ -40,9 +40,9 @@ const ExtendString = {
   },
   toCurrency() {
     if (this.split('.').length === 2) {
-      return `${parseInt(this).toLocaleString()}.${this.split('.')[1]}`;
+      return `${parseInt(this, 10).toLocaleString()}.${this.split('.')[1]}`;
     }
-    return `${parseInt(this).toLocaleString()}`;
+    return `${parseInt(this, 10).toLocaleString()}`;
   },
   fromCurrency() {
     return parseFloat(this.replace(/,/g, ''));
@@ -76,7 +76,7 @@ const ExtendString = {
     if (len % 2 === 0) {
       return `${this[(len / 2) - 1]}${this[(len / 2)]}`;
     }
-    return this[parseInt(len / 2)];
+    return this[parseInt((len / 2), 10)];
   },
   numberWords() {
     const numberWords = {
