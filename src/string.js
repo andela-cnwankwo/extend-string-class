@@ -81,7 +81,7 @@ const ExtendString = {
   },
 
   /*
-  * returns the list of words in a string as an array
+  * Returns the list of words in a string as an array
   * @param {string}
   * @returns {array}
   * @example
