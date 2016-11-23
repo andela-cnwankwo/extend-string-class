@@ -11,7 +11,7 @@ describe('String class', () => {
 
   describe('toUpper', () => {
     it('Should return the string with all characters in upper case', () => {
-      expect('home'.toUpper()).to.equal('HOME');
+      expect('hoMe'.toUpper()).to.equal('HOME');
     });
   });
 
