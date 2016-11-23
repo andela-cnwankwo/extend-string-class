@@ -50,6 +50,7 @@ describe('String class', () => {
   describe('toCurrency', () => {
     it('Should return a currency representation of the string', () => {
       expect('11111.11'.toCurrency()).to.equal('11,111.11');
+      expect('11111'.toCurrency()).to.equal('11,111');
     });
   });
 

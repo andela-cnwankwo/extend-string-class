@@ -4,8 +4,7 @@
   "description": "Extend string class in javascript",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha spec/string-spec.js",
-    "coverage": "./node_modules/.bin/istanbul cover spec/string-spec.js -- -R spec"
+    "test": "./node_modules/.bin/istanbul cover _mocha -- -R spec"
   },
   "repository": {
     "type": "git",
