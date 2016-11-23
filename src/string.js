@@ -23,16 +23,8 @@ const ExtendString = {
   * 'hello'.toUpper();
   */
   toUpper() {
-    const upperLength = this.length;
-    let cap = '';
-    for (let i = 0; i < upperLength; i += 1) {
-      if (this[i].match(/[a-z]/)) {
-        cap += String.fromCharCode(this.charCodeAt(i) - 32);
-      } else {
-        cap += this[i];
-      }
-    }
-    return cap;
+    return this.replace(/[a-z]/g, letter =>
+      String.fromCharCode(this.charCodeAt(this.indexOf(letter)) - 32));
   },
 
   /*
@@ -44,16 +36,8 @@ const ExtendString = {
   * 'HELLO'.toLower();
   */
   toLower() {
-    const lowerLength = this.length;
-    let lower = '';
-    for (let j = 0; j < lowerLength; j += 1) {
-      if (this[j].match(/[A-Z]/)) {
-        lower += String.fromCharCode(this.charCodeAt(j) + 32);
-      } else {
-        lower += this[j];
-      }
-    }
-    return lower;
+    return this.replace(/[A-Z]/g, letter =>
+      String.fromCharCode(this.charCodeAt(this.indexOf(letter)) + 32));
   },
 
   /*
