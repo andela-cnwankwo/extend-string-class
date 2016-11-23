@@ -1,3 +1,5 @@
+/** Extend string class in javascript to support more string manipulation features */
+
 const ExtendString = {
 
   /*
@@ -237,7 +239,7 @@ const ExtendString = {
   * @returns {boolean}
   * @example
   * // returns true
-  * 'hello!!'.numberWords();
+  * 'hello!!'.doubleCheck();
   */
   doubleCheck() {
     return /(\w).*?\1|(\W).*?\1/.test(this);
