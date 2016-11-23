@@ -23,9 +23,9 @@ const ExtendString = {
   * 'hello'.toUpper();
   */
   toUpper() {
-    const len = this.length;
+    const upperLength = this.length;
     let cap = '';
-    for (let i = 0; i < len; i += 1) {
+    for (let i = 0; i < upperLength; i += 1) {
       if (this[i].match(/[a-z]/)) {
         cap += String.fromCharCode(this.charCodeAt(i) - 32);
       } else {
@@ -44,13 +44,13 @@ const ExtendString = {
   * 'HELLO'.toLower();
   */
   toLower() {
-    const len = this.length;
+    const lowerLength = this.length;
     let lower = '';
-    for (let i = 0; i < len; i += 1) {
-      if (this[i].match(/[A-Z]/)) {
-        lower += String.fromCharCode(this.charCodeAt(i) + 32);
+    for (let j = 0; j < lowerLength; j += 1) {
+      if (this[j].match(/[A-Z]/)) {
+        lower += String.fromCharCode(this.charCodeAt(j) + 32);
       } else {
-        lower += this[i];
+        lower += this[j];
       }
     }
     return lower;
@@ -161,13 +161,13 @@ const ExtendString = {
   * 'Onomatopoeia'.alternatingCase();
   */
   alternatingCase() {
-    const len = this.length;
+    const wordLength = this.length;
     let alternatingCase = '';
-    for (let i = 0; i < len; i += 1) {
-      if ( (i % 2 !== 0) ) {
-        alternatingCase += this[i].toUpper();
+    for (let k = 0; k < wordLength; k += 1) {
+      if ((k % 2 !== 0)) {
+        alternatingCase += this[k].toUpper();
       } else {
-        alternatingCase += this[i].toLower();
+        alternatingCase += this[k].toLower();
       }
     }
     return alternatingCase;

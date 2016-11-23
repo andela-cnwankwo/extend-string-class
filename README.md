@@ -1,6 +1,6 @@
 # Extend String Class
 
-[![Build Status](https://travis-ci.org/andela-cnwankwo/string-class.svg?branch=develop)](https://travis-ci.org/andela-cnwankwo/string-class)
+[![Build Status](https://travis-ci.org/andela-cnwankwo/string-class.svg?branch=develop)](https://travis-ci.org/andela-cnwankwo/string-class) [![Code Climate](https://codeclimate.com/github/andela-cnwankwo/string-class/badges/gpa.svg)](https://codeclimate.com/github/andela-cnwankwo/string-class) [![Test Coverage](https://codeclimate.com/github/andela-cnwankwo/string-class/badges/coverage.svg)](https://codeclimate.com/github/andela-cnwankwo/string-class/coverage) [![Issue Count](https://codeclimate.com/github/andela-cnwankwo/string-class/badges/issue_count.svg)](https://codeclimate.com/github/andela-cnwankwo/string-class)
 
 ### Introduction
 Using Prototype Oriented Programming, methods, procedures and instance attributes are added to the Javascript String class to support more string manipulation features
