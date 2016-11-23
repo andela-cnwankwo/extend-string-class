@@ -1,4 +1,4 @@
-# Extend string Class
+# Extend String Class
 
 [![Build Status](https://travis-ci.org/andela-cnwankwo/string-class.svg?branch=develop)](https://travis-ci.org/andela-cnwankwo/string-class)
 
@@ -42,7 +42,7 @@ Using Prototype Oriented Programming, methods, procedures and instance attribute
     - doubleCheck: Checks if the string contains double characters
 
 ### Usage
-'<argument>'.<methodName()> for instance: 'Do you wish to contribute?'.isQuestion()  // Returns true
+'< argument >'.< methodName() > for instance: 'Do you wish to contribute?'.isQuestion()  // Returns true
 
 
 ### Contribute
