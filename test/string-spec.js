@@ -39,6 +39,11 @@ describe('String class', () => {
       expect('I am done'.isQuestion()).to.be.false;
       expect('I am ? not a question'.isQuestion()).to.be.false;
     });
+    it('Should return false if the string is not valid word', () => {
+      expect('???'.isQuestion()).to.be.false;
+      expect('?'.isQuestion()).to.be.false;
+      expect('  ?'.isQuestion()).to.be.false;
+    });
   });
 
   describe('words', () => {
@@ -55,6 +60,9 @@ describe('String class', () => {
     it('Should return the number of words in the string', () => {
       expect('number of words'.wordCount()).to.equal(3);
     });
+    it('Should return only the number of words in the string', () => {
+      expect('A , new ; sentence!'.wordCount()).to.equal(3);
+    });
   });
 
   describe('toCurrency', () => {
@@ -68,6 +76,7 @@ describe('String class', () => {
   describe('fromCurrency', () => {
     it('Should return a number representation of the currency string', () => {
       expect('11,111.11'.fromCurrency()).to.equal(11111.11);
+      expect('11,111.110000'.fromCurrency()).to.equal(11111.11);
     });
   });
 
@@ -99,6 +108,7 @@ describe('String class', () => {
   describe('isDigit', () => {
     it('Should return true if the number is a digit', () => {
       expect('3'.isDigit()).to.be.true;
+      expect('+3'.isDigit()).to.be.true;
     });
     it('Should return false if the number is not a digit', () => {
       expect('34'.isDigit()).to.be.false;

@@ -56,7 +56,7 @@ const ExtendString = {
   * 'are you coming?'.isQuestion();
   */
   isQuestion() {
-    return /\?$/.test(this);
+    return /([a-z])\?$/i.test(this);
   },
 
   /**
