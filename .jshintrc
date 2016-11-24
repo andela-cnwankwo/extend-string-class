@@ -1,8 +1,0 @@
-{
-    "eqeqeq": true,
-    "varstmt": true,
-    "esversion": 6,
-    "node": true,
-    "quotmark": "single",
-    "mocha": true
-}
