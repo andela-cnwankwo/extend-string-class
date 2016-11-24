@@ -127,7 +127,7 @@ const ExtendString = {
     const len = this.length;
     let inverseCase = '';
     for (let i = 0; i < len; i += 1) {
-      if (this[i].match(/[a-z]/)) {
+      if (/[a-z]/.test(this[i])) {
         inverseCase += this[i].toUpper();
       } else {
         inverseCase += this[i].toLower();

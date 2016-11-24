@@ -5,6 +5,8 @@ describe('String class', () => {
   describe('hasVowels', () => {
     it('Should return true if the string contains vowels', () => {
       expect('home'.hasVowels()).to.be.true;
+    });
+    it('Should return false if the string does not contains vowels', () => {
       expect('bcd'.hasVowels()).to.be.false;
     });
   });
@@ -30,6 +32,8 @@ describe('String class', () => {
   describe('isQuestion', () => {
     it('Should return true if the string is a question', () => {
       expect('Are you done?'.isQuestion()).to.be.true;
+    });
+    it('Should return false if the string is not a question', () => {
       expect('I am done'.isQuestion()).to.be.false;
     });
   });
@@ -37,6 +41,8 @@ describe('String class', () => {
   describe('words', () => {
     it('Should return a list of the words in the string as an array', () => {
       expect('This is a sentence'.words()).to.deep.equal(['This', 'is', 'a', 'sentence']);
+    });
+    it('Should return an instance of array', () => {
       expect('This is a sentence'.words() instanceof Array).to.be.true;
     });
   });
@@ -86,8 +92,10 @@ describe('String class', () => {
   });
 
   describe('isDigit', () => {
-    it('Should return true if the number is a digit and false otherwise', () => {
+    it('Should return true if the number is a digit', () => {
       expect('3'.isDigit()).to.be.true;
+    });
+    it('Should return false if the number is not a digit', () => {
       expect('34'.isDigit()).to.be.false;
     });
   });
@@ -95,6 +103,8 @@ describe('String class', () => {
   describe('doubleCheck', () => {
     it('Should return true if the string contains double characters', () => {
       expect('hello'.doubleCheck()).to.be.true;
+    });
+    it('Should return false if the string does not contain double characters', () => {
       expect('world'.doubleCheck()).to.be.false;
     });
   });
