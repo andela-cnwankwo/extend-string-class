@@ -2,10 +2,9 @@
 
 const ExtendString = {
 
-  /*
+  /**
   * Checks if the argument contains vowels
-  * @param {string}
-  * @returns {boolean}
+  * @returns {Boolean} boolean.
   * @example
   * // returns true
   * 'hello'.hasVowels();
@@ -14,10 +13,9 @@ const ExtendString = {
     return /[aeiou]/i.test(this);
   },
 
-  /*
+  /**
   * Converts the argument to uppercase characters
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'HELLO'
   * 'hello'.toUpper();
@@ -27,10 +25,9 @@ const ExtendString = {
       String.fromCharCode(this.charCodeAt(this.indexOf(letter)) - 32));
   },
 
-  /*
+  /**
   * Converts the argument to lowercase characters
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'hello'
   * 'HELLO'.toLower();
@@ -40,34 +37,31 @@ const ExtendString = {
       String.fromCharCode(this.charCodeAt(this.indexOf(letter)) + 32));
   },
 
-  /*
+  /**
   * Converts the  first character of the argument to uppercase
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'Hello'
   * 'hello'.ucFirst();
   */
   ucFirst() {
-    return (this[0].toUpper() + this.slice(1));
+    return (`${this[0].toUpper()}${this.slice(1)}`);
   },
 
-  /*
+  /**
   * Checks if the argument is a question
-  * @param {string}
-  * @returns {boolean}
+  * @returns {Boolean} boolean
   * @example
   * // returns true
   * 'are you coming?'.isQuestion();
   */
   isQuestion() {
-    return /[?]$/.test(this);
+    return /\?$/.test(this);
   },
 
-  /*
+  /**
   * Returns the list of words in a string as an array
-  * @param {string}
-  * @returns {array}
+  * @returns {array} array
   * @example
   * // returns ['hello','world']
   * 'hello world'.words();
@@ -76,10 +70,9 @@ const ExtendString = {
     return this.match(/(\w+)/g);
   },
 
-  /*
+  /**
   * Counts the number of words in a string
-  * @param {string}
-  * @returns {number}
+  * @returns {Number} number
   * @example
   * // returns 2
   * 'hello world'.wordCount();
@@ -88,25 +81,22 @@ const ExtendString = {
     return this.words().length;
   },
 
-  /*
+  /**
   * Converts the argument to a currency format
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns '11,111.11'
   * '11111.11'.toCurrency();
   */
   toCurrency() {
-    if (this.split('.').length === 2) {
-      return `${parseInt(this, 10).toLocaleString()}.${this.split('.')[1]}`;
-    }
-    return `${parseInt(this, 10).toLocaleString()}`;
+    return (this.split('.').length === 2)
+    ? `${parseInt(this, 10).toLocaleString()}.${this.split('.')[1]}`
+    : `${parseInt(this, 10).toLocaleString()}`;
   },
 
-  /*
+  /**
   * Converts the argument in currency format to number
-  * @param {string}
-  * @returns {number}
+  * @returns {Number} number
   * @example
   * // returns '11111.11'
   * '11,111.11'.fromCurrency();
@@ -115,68 +105,54 @@ const ExtendString = {
     return parseFloat(this.replace(/,/g, ''));
   },
 
-  /*
+  /**
   * Returns the argument passed in with inverted character cases
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'mR. bEN'
   * 'Mr. Ben'.inverseCase();
   */
   inverseCase() {
-    const len = this.length;
-    let inverseCase = '';
-    for (let i = 0; i < len; i += 1) {
-      if (/[a-z]/.test(this[i])) {
-        inverseCase += this[i].toUpper();
-      } else {
-        inverseCase += this[i].toLower();
-      }
-    }
-    return inverseCase;
+    return this.split('').map(letter => ((/[a-z]/.test(letter))
+    ? letter.toUpper()
+    : letter.toLower()))
+    .join()
+    .replace(/,/g, '');
   },
 
-  /*
+  /**
   * Returns the argument passed in with alternating character cases
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'oNoMaToPoEiA'
   * 'Onomatopoeia'.alternatingCase();
   */
   alternatingCase() {
-    const wordLength = this.length;
+    let len = 0;
     let alternatingCase = '';
-    for (let k = 0; k < wordLength; k += 1) {
-      if ((k % 2 !== 0)) {
-        alternatingCase += this[k].toUpper();
-      } else {
-        alternatingCase += this[k].toLower();
-      }
+    while (len < this.length) {
+      alternatingCase += (len % 2 !== 0) ? this[len].toUpper() : this[len].toLower();
+      len += 1;
     }
     return alternatingCase;
   },
 
-  /*
+  /**
   * Returns the character(s) in the middle of the argument
-  * @param {string}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'ea'
   * 'read'.getMiddle();
   */
   getMiddle() {
-    const len = this.length;
-    if (len % 2 === 0) {
-      return `${this[(len / 2) - 1]}${this[(len / 2)]}`;
-    }
-    return this[parseInt((len / 2), 10)];
+    return (this.length % 2 === 0)
+    ? `${this[(this.length / 2) - 1]}${this[(this.length / 2)]}`
+    : this[parseInt((this.length / 2), 10)];
   },
 
-  /*
+  /**
   * Returns the words equivalent of the number passed in.
-  * @param {number}
-  * @returns {string}
+  * @returns {String} string
   * @example
   * // returns 'three two five'
   * '325'.numberWords();
@@ -202,25 +178,20 @@ const ExtendString = {
     return word.slice(0, -1);
   },
 
-  /*
+  /**
   * Checks if the argument is a single digit
-  * @param {number}
-  * @returns {boolean}
+  * @returns {Boolean} boolean
   * @example
   * // returns true
   * '3'.isDigit();
   */
   isDigit() {
-    if (/\d+/.exec(this).toString().length > 1) {
-      return false;
-    }
-    return true;
+    return (/\d+/.test(this)) ? (/\d+/.exec(this).toString().length === 1) : false;
   },
 
-  /*
+  /**
   * Checks if the string contains double characters
-  * @param {string}
-  * @returns {boolean}
+  * @returns {Boolean} boolean
   * @example
   * // returns true
   * 'hello!!'.doubleCheck();

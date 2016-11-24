@@ -14,12 +14,14 @@ describe('String class', () => {
   describe('toUpper', () => {
     it('Should return the string with all characters in upper case', () => {
       expect('hoMe'.toUpper()).to.equal('HOME');
+      expect('#hel$lo'.toUpper()).to.equal('#HEL$LO');
     });
   });
 
   describe('toLower', () => {
     it('Should return the string with all characters in lower case', () => {
       expect('HOME'.toLower()).to.equal('home');
+      expect('HO#$ME'.toLower()).to.equal('ho#$me');
     });
   });
 
@@ -35,12 +37,14 @@ describe('String class', () => {
     });
     it('Should return false if the string is not a question', () => {
       expect('I am done'.isQuestion()).to.be.false;
+      expect('I am ? not a question'.isQuestion()).to.be.false;
     });
   });
 
   describe('words', () => {
     it('Should return a list of the words in the string as an array', () => {
       expect('This is a sentence'.words()).to.deep.equal(['This', 'is', 'a', 'sentence']);
+      expect('This  is another  sentence'.words()).to.deep.equal(['This', 'is', 'another', 'sentence']);
     });
     it('Should return an instance of array', () => {
       expect('This is a sentence'.words() instanceof Array).to.be.true;
@@ -57,6 +61,7 @@ describe('String class', () => {
     it('Should return a currency representation of the string', () => {
       expect('11111.11'.toCurrency()).to.equal('11,111.11');
       expect('11111'.toCurrency()).to.equal('11,111');
+      expect('11111#$'.toCurrency()).to.equal('11,111');
     });
   });
 
@@ -97,6 +102,9 @@ describe('String class', () => {
     });
     it('Should return false if the number is not a digit', () => {
       expect('34'.isDigit()).to.be.false;
+    });
+    it('Should return false if not a number', () => {
+      expect('#'.isDigit()).to.be.false;
     });
   });
 
