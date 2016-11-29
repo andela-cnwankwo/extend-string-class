@@ -121,6 +121,7 @@ describe('String class', () => {
   describe('doubleCheck', () => {
     it('Should return true if the string contains double characters', () => {
       expect('hello'.doubleCheck()).to.be.true;
+      expect('world!!'.doubleCheck()).to.be.true;
     });
     it('Should return false if the string does not contain double characters', () => {
       expect('world'.doubleCheck()).to.be.false;
