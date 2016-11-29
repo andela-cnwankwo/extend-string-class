@@ -45,7 +45,7 @@ const ExtendString = {
   * 'hello'.ucFirst();
   */
   ucFirst() {
-    return (`${this[0].toUpper()}${this.slice(1)}`);
+    return (this.replace(/^\w/, firstletter => firstletter.toUpper()));
   },
 
   /**
