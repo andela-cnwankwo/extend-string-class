@@ -125,5 +125,8 @@ describe('String class', () => {
     it('Should return false if the string does not contain double characters', () => {
       expect('world'.doubleCheck()).to.be.false;
     });
+    it('Should return false if the characters are not repeated', () => {
+      expect('worldo'.doubleCheck()).to.be.false;
+    });
   });
 });

@@ -197,7 +197,7 @@ const ExtendString = {
   * 'hello!!'.doubleCheck();
   */
   doubleCheck() {
-    return /(\w).*?\1|(\W).*?\1/.test(this);
+    return /((\w).*?|(\W).*?)(?=(\1))/.test(this);
   }
 };
 
