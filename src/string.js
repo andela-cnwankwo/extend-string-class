@@ -1,4 +1,5 @@
-/** Extend string class in javascript to support more string manipulation features */
+/** Extend string class in javascript
+ * to support more string manipulation features */
 
 const ExtendString = {
 
@@ -45,7 +46,7 @@ const ExtendString = {
   * 'hello'.ucFirst();
   */
   ucFirst() {
-    return (this.replace(/^\w/, firstletter => firstletter.toUpper()));
+    return this.replace(/^\w/, firstletter => firstletter.toUpper());
   },
 
   /**
@@ -61,7 +62,7 @@ const ExtendString = {
 
   /**
   * Returns the list of words in a string as an array
-  * @returns {array} array
+  * @returns {Array} array
   * @example
   * // returns ['hello','world']
   * 'hello world'.words();
@@ -89,9 +90,19 @@ const ExtendString = {
   * '11111.11'.toCurrency();
   */
   toCurrency() {
-    return (this.split('.').length === 2)
-    ? `${parseInt(this, 10).toLocaleString()}.${this.split('.')[1]}`
-    : `${parseInt(this, 10).toLocaleString()}`;
+    const number = this.replace(/[^0-9.-]/g, ''),
+      len = number.split(/\./)[0].length,
+      initialComma = (len % 3 === 0) ? 3 : len % 3,
+      regEx = new RegExp(`^(.{${initialComma}})?|(.{3})`, 'g'),
+      leftHandSide = number.split(/\./)[0]
+        .replace(regEx, '$&,')
+        .replace(/,$/, ''),
+      rightHandSide = (number.split(/\./).length === 2)
+      ? number.split(/\./)[1]
+      : '';
+    return (number.split(/\./).length === 2)
+      ? `${leftHandSide}.${rightHandSide}`
+      : leftHandSide;
   },
 
   /**
@@ -114,10 +125,10 @@ const ExtendString = {
   */
   inverseCase() {
     return this.split('').map(letter => ((/[a-z]/.test(letter))
-    ? letter.toUpper()
-    : letter.toLower()))
-    .join()
-    .replace(/,/g, '');
+      ? letter.toUpper()
+      : letter.toLower()))
+      .join()
+      .replace(/,/g, '');
   },
 
   /**
@@ -131,7 +142,9 @@ const ExtendString = {
     let len = 0;
     let alternatingCase = '';
     while (len < this.length) {
-      alternatingCase += (len % 2 !== 0) ? this[len].toUpper() : this[len].toLower();
+      alternatingCase += (len % 2 !== 0)
+        ? this[len].toUpper()
+        : this[len].toLower();
       len += 1;
     }
     return alternatingCase;
@@ -146,8 +159,8 @@ const ExtendString = {
   */
   getMiddle() {
     return (this.length % 2 === 0)
-    ? `${this[(this.length / 2) - 1]}${this[(this.length / 2)]}`
-    : this[parseInt((this.length / 2), 10)];
+      ? `${this[(this.length / 2) - 1]}${this[(this.length / 2)]}`
+      : this[parseInt((this.length / 2), 10)];
   },
 
   /**
@@ -186,7 +199,9 @@ const ExtendString = {
   * '3'.isDigit();
   */
   isDigit() {
-    return (/\d+/.test(this)) ? (/\d+/.exec(this).toString().length === 1) : false;
+    return (/\d+/.test(this))
+      ? (/\d+/.exec(this).toString().length === 1)
+      : false;
   },
 
   /**

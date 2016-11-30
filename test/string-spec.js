@@ -26,8 +26,9 @@ describe('String class', () => {
   });
 
   describe('ucFirst', () => {
-    it('Should return the string with the first character in upper case', () => {
-      expect('home'.ucFirst()).to.equal('Home');
+    it('Should return the string with the first character in upper case',
+      () => {
+        expect('home'.ucFirst()).to.equal('Home');
     });
   });
 
@@ -48,8 +49,10 @@ describe('String class', () => {
 
   describe('words', () => {
     it('Should return a list of the words in the string as an array', () => {
-      expect('This is a sentence'.words()).to.deep.equal(['This', 'is', 'a', 'sentence']);
-      expect('This  is another  sentence'.words()).to.deep.equal(['This', 'is', 'another', 'sentence']);
+      expect('This is a sentence'.words())
+      .to.deep.equal(['This', 'is', 'a', 'sentence']);
+      expect('This  is another  sentence'.words())
+      .to.deep.equal(['This', 'is', 'another', 'sentence']);
     });
     it('Should return an instance of array', () => {
       expect('This is a sentence'.words() instanceof Array).to.be.true;
@@ -67,9 +70,9 @@ describe('String class', () => {
 
   describe('toCurrency', () => {
     it('Should return a currency representation of the string', () => {
-      expect('11111.11'.toCurrency()).to.equal('11,111.11');
-      expect('11111'.toCurrency()).to.equal('11,111');
+      expect('111111.11'.toCurrency()).to.equal('111,111.11');
       expect('11111#$'.toCurrency()).to.equal('11,111');
+      expect('1111#$.1$#1'.toCurrency()).to.equal('1,111.11');
     });
   });
 
@@ -81,14 +84,16 @@ describe('String class', () => {
   });
 
   describe('inverseCase', () => {
-    it('Should return a string where each letter of the string as an inverse of its current case', () => {
-      expect('Mr. Ben'.inverseCase()).to.equal('mR. bEN');
+    it('Should return a string with each letter as inverse of its current case',
+      () => {
+        expect('Mr. Ben'.inverseCase()).to.equal('mR. bEN');
     });
   });
 
   describe('alternatingCase', () => {
-    it('Should return the letters in alternating cases starting with small letter', () => {
-      expect('Onomatopoeia'.alternatingCase()).to.equal('oNoMaToPoEiA');
+    it('Should return string in alternating cases starting with small letter',
+      () => {
+        expect('Onomatopoeia'.alternatingCase()).to.equal('oNoMaToPoEiA');
     });
   });
 
@@ -123,8 +128,9 @@ describe('String class', () => {
       expect('hello'.doubleCheck()).to.be.true;
       expect('world!!'.doubleCheck()).to.be.true;
     });
-    it('Should return false if the string does not contain double characters', () => {
-      expect('world'.doubleCheck()).to.be.false;
+    it('Should return false if the string does not contain double characters',
+      () => {
+        expect('world'.doubleCheck()).to.be.false;
     });
     it('Should return false if the characters are not repeated', () => {
       expect('worldo'.doubleCheck()).to.be.false;
